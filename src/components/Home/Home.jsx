@@ -1,6 +1,7 @@
 import React from 'react'
 import './Home.css'
 import imgSrc from '../../assets/m3.png'
+import TextScramble from '../TextScramble/TextScramble'
 
 const Home = () => {
   return (
@@ -10,7 +11,7 @@ const Home = () => {
           <span className="glitch-layer" data-text="SHREYA">SHREYA</span>&nbsp;
           <span className="glitch-layer" data-text="MOHANTY">MOHANTY</span>
         </div>
-        <p className='scramble-text'>Web Developer</p>
+        <p className='scramble-text'><TextScramble /></p>
       </div>
       <div className="right">
         <img src={imgSrc} alt="" />

@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10rem;
+    gap: 15rem;
     margin: auto 5rem;
 }
 
@@ -89,3 +89,6 @@
   100% { clip: rect(40px, 9999px, 75px, 0); }
 }
 
+.right img {
+  width: 350px;
+}
