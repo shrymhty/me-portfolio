@@ -1,0 +1,21 @@
+import React from 'react'
+import Navbar from './components/Navbar/Navbar'
+import './App.css'
+import Home from './components/Home/Home'
+
+const App = () => {
+  return (
+    <div>
+      <Navbar />
+      <div id="home" className="section">
+        <Home />
+      </div>
+      <div id="about" className="section" style={{ backgroundColor: '#e23e57' }}>About</div>
+      <div id="projects" className="section" style={{ backgroundColor: '#6a2c70' }}>Projects</div>
+      <div id="contact" className="section" style={{ backgroundColor: '#0f3460' }}>Contact</div>
+    </div>
+
+  )
+}
+
+export default App
