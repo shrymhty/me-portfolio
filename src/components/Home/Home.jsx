@@ -15,7 +15,7 @@ const Home = () => {
         <p className='scramble-text'><TextScramble /></p>
       </div>
       <div className="right">
-        <Halftone />
+        {/* <Halftone /> */}
       </div>
     </div>
   )
