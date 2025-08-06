@@ -2,6 +2,7 @@ import React from 'react'
 import './Home.css'
 import imgSrc from '../../assets/m3.png'
 import TextScramble from '../TextScramble/TextScramble'
+import Halftone from '../Halftone/Halftone'
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
         <p className='scramble-text'><TextScramble /></p>
       </div>
       <div className="right">
-        <img src={imgSrc} alt="" />
+        <Halftone />
       </div>
     </div>
   )

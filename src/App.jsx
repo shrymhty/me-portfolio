@@ -10,7 +10,7 @@ const App = () => {
       <div id="home" className="section">
         <Home />
       </div>
-      <div id="about" className="section" style={{ backgroundColor: '#e23e57' }}>About</div>
+      <div id="about" className="section">About</div>
       <div id="projects" className="section" style={{ backgroundColor: '#6a2c70' }}>Projects</div>
       <div id="contact" className="section" style={{ backgroundColor: '#0f3460' }}>Contact</div>
     </div>
