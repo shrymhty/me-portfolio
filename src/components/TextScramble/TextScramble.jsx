@@ -17,8 +17,8 @@ class TextScrambleEngine {
         for (let i = 0; i<length; i++) {
             const from = oldText[i] || '';
             const to = newText[i] || '';
-            const start = Math.floor(Math.random() * 200);
-            const end = start + Math.floor(Math.random() * 200);
+            const start = Math.floor(Math.random() * 80);
+            const end = start + Math.floor(Math.random() * 80);
             this.queue.push({ from, to, start, end });
         }
 
@@ -46,7 +46,7 @@ class TextScrambleEngine {
                 complete++;
                 output += to;
             } else if (this.frame >= start) {
-                if (!char || Math.random() < 0.28) {
+                if (!char || Math.random() < 0.1) {
                 char = this.randomChar();
                 this.queue[i].char = char;
                 }
