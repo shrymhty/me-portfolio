@@ -7,11 +7,11 @@ import useSectionObserver from './components/utils/useSectionObserver'
 
 const App = () => {
 
-  useSectionObserver();
+  const activeSection = useSectionObserver();
 
   return (
     <div>
-      <Navbar />
+      <Navbar activeSection={activeSection} />
       <div id="home" className="section">
         <Home />
       </div>

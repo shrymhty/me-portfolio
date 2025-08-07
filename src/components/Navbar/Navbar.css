@@ -118,6 +118,16 @@
   clip: auto;
 }
 
+/* @media screen and (max-width: 750px) {
+  .navbar {
+    width: 100vw;
+    background: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+} */
+
 @media screen and (max-width: 750px) {
   .navbar {
     width: 100vw;
@@ -125,5 +135,33 @@
     position: fixed;
     top: 0;
     left: 0;
+  }
+
+  .nav-links a {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    min-width: 2ch;
+  }
+
+  .label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+  }
+
+  .fade-out {
+    opacity: 0;
+    transform: translateY(50%);
   }
 }

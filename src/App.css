@@ -17,11 +17,15 @@ body {
   width: 100vw;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .section {
   height: 100vh;
   padding-top: var(--navbar-height);
   font-size: 2rem;
-  /* scroll-snap-align: start; */
+  scroll-snap-align: start;
   display: flex;
   justify-content: center; /* centers horizontally */
   align-items: center; 

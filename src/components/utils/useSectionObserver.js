@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+import { useState } from 'react';
 
 const useSectionObserver = () => {
+  const [activeSection, setActiveSection] = useState('home');
   useEffect(() => {
     const sections = document.querySelectorAll('.section');
 
@@ -9,6 +11,7 @@ const useSectionObserver = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
+            setActiveSection(id);
             window.history.replaceState(null, '', `#${id}`);
           }
         });
@@ -22,6 +25,7 @@ const useSectionObserver = () => {
 
     return () => observer.disconnect();
   }, []);
+  return activeSection;
 };
 
 export default useSectionObserver;

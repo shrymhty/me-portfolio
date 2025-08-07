@@ -90,18 +90,22 @@
   100% { clip: rect(40px, 9999px, 75px, 0); }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 800px) {
   .home {
     flex-direction: column;
     gap: 5rem;
     margin: 0;
     text-align: left;
+    position: relative;
   }
 
   .left {
     width: 100%;
     padding-left: 2rem;
     box-sizing: border-box;
+    z-index: 5;
+    position: relative;
+    margin-top: 20rem;
   }
 
   .left p {
@@ -109,11 +113,22 @@
   }
 
   .my-name {
-    font-size: 5rem;
+    font-size: 10vw;
+    font-weight: 700;
+    z-index: 5;
+    position: relative;
   }
 
   .glitch-layer {
     font-size: 3rem;
     line-height: 0.5;
+  }
+
+  .halftone::before {
+    opacity: 0.2;
+  }
+
+  .halftone img {
+    opacity: 0.5;
   }
 }
