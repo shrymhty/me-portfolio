@@ -5,13 +5,14 @@ import { useEffect } from 'react';
 import calicoImg from '../../assets/calico.png'
 import cvImg from "../../assets/pocketcv.png"
 import examImg from "../../assets/paper.png"
+import { icons } from '../../assets/asset.js';
 
  const projects = [
     {
       id: 1,
       title: "Calico",
       description: "🧶 Calico is a clean, handcrafted eCommerce experience tailored for showcasing and selling handmade crochet products. Designed with care for both aesthetics and usability, Calico displays the crochet creations beautifully, manages orders seamlessly, and provides a smooth checkout experience.",
-      techStack: ["React", "Node.js", "MongoDB", "Firebase Auth", "Vite", "React Router", "Express.js"],
+      techStack: ["React", "Node.js", "MongoDB", "Firebase Auth", "Vite", "Express.js"],
       image: calicoImg,
     },
     {
@@ -25,7 +26,7 @@ import examImg from "../../assets/paper.png"
       id: 3,
       title: "Enhancing Exam Preparation through Topic Modelling and Key Topic Identification",
       description: "📚 This project focuses on improving exam preparation strategies by utilizing topic modeling and key topic identification techniques. By analyzing past exam papers and identifying key topics, students can better focus their study efforts and improve their performance.",
-      techStack: ['Python', 'Natural Language Processing', 'Machine Learning', 'Topic Modeling', 'LDA', 'Gensim'],
+      techStack: ['Python', 'PyTorch', 'OpenCV', "Jupyter"],
       image: examImg
     }
 ];
@@ -64,7 +65,6 @@ const Work = () => {
   return (
     <div className='project'>
       <div className="section-title">
-        <p>Projects</p>
         <p>Here are some of my recent projects that I have worked on.</p>
       </div>
       <div className="project-showcase">
@@ -81,10 +81,24 @@ const Work = () => {
         ))}
       </div>
       <div className="right-panel">
-        <div className="project-details">
+        <div 
+          className="project-details fade"
+          key={current.id}
+        >
           <p className='proj-title'>{current.title}</p>
           <p className='proj-desc'>{current.description}</p>
-          <p className='tech-stack'>Tech Stack: {current.techStack.join(', ')}</p>
+          <div className='tech-stack'>
+            <div className="icons">
+              {current.techStack.map((tech, i) => (
+                <img 
+                  key={i} 
+                  src={icons[tech]} 
+                  alt={tech} 
+                  title={tech}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       </div>
