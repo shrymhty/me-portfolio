@@ -28,6 +28,9 @@
     overflow: scroll;
     width: 60%;
     height: 100%;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .right-panel {
@@ -51,6 +54,7 @@
     height: auto;
     max-height: 60vh;
     object-fit: contain;
+    transform: translateY(-20%);
 }
 
 .project-details {
@@ -66,5 +70,10 @@
 
 .project-details .proj-desc {
     font-size: 1.2rem;
+    text-align: left;
+}
+
+.tech-stack {
+    font-size: 1.3rem;
     text-align: left;
 }

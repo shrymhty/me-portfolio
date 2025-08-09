@@ -21,22 +21,36 @@
 }
 
 .skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5rem;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
 }
 
 .card {
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-areas: "card";
-    place-items: center;
     aspect-ratio: 4/5;
     border: 1px solid var(--surface-2);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
     isolation: isolate;
     transition: border-color 200ms var(--ease-out);
     user-select: none;
-    width: 30vmin;
+}
+
+@media screen and (max-width: 750px) {
+    .about {
+        width: 100%;
+        gap: 15vh;
+        padding: 2rem;
+    }
+
+    .text {
+        font-size: 5vw;
+        width: 100%;
+        text-align: left;
+    }
+
+    .skills {
+        gap: 10vw;
+    }
 }

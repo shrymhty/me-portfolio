@@ -84,7 +84,7 @@ const Work = () => {
         <div className="project-details">
           <p className='proj-title'>{current.title}</p>
           <p className='proj-desc'>{current.description}</p>
-          <p>Tech Stack: {current.techStack.join(', ')}</p>
+          <p className='tech-stack'>Tech Stack: {current.techStack.join(', ')}</p>
         </div>
       </div>
       </div>
