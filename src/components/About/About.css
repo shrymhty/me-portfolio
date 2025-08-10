@@ -27,6 +27,7 @@
 }
 
 .card {
+    position: relative;
     aspect-ratio: 4/5;
     border: 1px solid var(--surface-2);
     display: grid;
@@ -35,6 +36,11 @@
     isolation: isolate;
     transition: border-color 200ms var(--ease-out);
     user-select: none;
+}
+
+.card-text {
+    position: absolute;
+    width: 30%;
 }
 
 @media screen and (max-width: 750px) {
