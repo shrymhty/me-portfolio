@@ -25,7 +25,7 @@ import { icons } from '../../assets/asset.js';
     {
       id: 3,
       title: "Enhancing Exam Preparation through Topic Modelling and Key Topic Identification",
-      description: "📚 This project focuses on improving exam preparation strategies by utilizing topic modeling and key topic identification techniques. By analyzing past exam papers and identifying key topics, students can better focus their study efforts and improve their performance.",
+      description: "📚 This project improves exam preparation by using topic modeling to identify key topics from past papers, helping students focus their study and boost performance.",
       techStack: ['Python', 'PyTorch', 'OpenCV', "Jupyter"],
       image: examImg
     }

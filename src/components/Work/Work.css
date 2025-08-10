@@ -214,6 +214,10 @@
 
 @media screen and (max-width: 750px) {
 
+    .project {
+        margin: 1rem;
+    }
+
     .section-title {
         font-size: 1rem;
     }
@@ -223,20 +227,41 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        height: 100vh;
     }
 
     .left-panel {
         width: 100%;
-        height: 60%;
+        height: 50%;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
     }
 
     .right-panel {
         width: 100%;
-        height: 40%;
+        height: 50%;
+        position: sticky;
+        top: 0;
+        
+    }
+
+    .project-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        scroll-snap-align: start;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+        object-fit: contain;
     }
 
     .project-details {
         text-align: left;
+        padding: 0;
     }
 
     .project-details .proj-title {
@@ -249,12 +274,6 @@
         font-size: 0.6rem;
         text-align: left;
         
-    }
-
-    .project-card img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
     }
 
 }
