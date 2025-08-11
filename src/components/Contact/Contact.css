@@ -1,0 +1,132 @@
+.contact {
+    background: black;
+    margin: auto 5rem;
+    display: flex;
+    width: 100%;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white overlay */
+    backdrop-filter: blur(10px);           /* Frosted glass blur */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* gap: 1rem; */
+    width: 35%;
+}
+
+.contact-form p {
+    font-weight: 700;
+    margin: 0;  
+    font-size: 3rem;  
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.contact-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.other-details {
+    width: 40%;
+}
+
+.contact-input label {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    
+}
+
+.contact-input input {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-size: 0.8rem;
+    background: none;
+    color: white;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+.contact-input input:active, .contact-input input:hover {
+    background: rgba(255, 255, 255, 0.1); /* Transparent white overlay */
+    backdrop-filter: blur(10px);           /* Frosted glass blur */
+    -webkit-backdrop-filter: blur(10px);
+}
+
+textarea {
+    height: 10vh;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: none;
+    color: white;
+    padding: 1rem;
+    font-size: 0.8rem;
+    outline: none;
+    resize: none;
+}
+
+textarea:active, textarea:hover {
+    background: rgba(255, 255, 255, 0.1); /* Transparent white overlay */
+    backdrop-filter: blur(10px);           /* Frosted glass blur */
+    -webkit-backdrop-filter: blur(10px);    
+}
+
+.crosshair {
+    position: absolute;
+}
+
+.crosshair img {
+    width: 40px;
+}
+
+.crosshair.one {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -40%);
+}
+
+.crosshair.two {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 60%);
+}
+
+.other-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.other-details p {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+}
+
+.other-details p span {
+    font-style: italic;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.map {
+    width: 60%;
+    height: 100%;
+    margin: auto;
+}
+
+.map img {
+    width: 100%;
+    object-fit: cover;
+}

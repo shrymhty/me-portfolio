@@ -18,7 +18,7 @@ import { icons } from '../../assets/asset.js';
     {
       id: 2,
       title: "PocketCV",
-      description: "📄 PocketCV is an intelligent resume builder that leverages Google Gemini to assist users in creating polished, personalized CVs. Designed for speed and clarity, it offers live editing, modern templates, and AI-generated content suggestions tailored to job roles and industries.",
+      description: "📄 PocketCV is a smart resume builder using Google Gemini to help users create polished, personalized CVs with live editing, modern templates, and AI-driven content suggestions.",
       techStack: ['React', 'Node.js', 'Gemini API', 'Vite'],
       image: cvImg
     },

@@ -215,7 +215,7 @@
 @media screen and (max-width: 750px) {
 
     .project {
-        margin: 1rem;
+        margin: 2rem;
     }
 
     .section-title {
@@ -232,16 +232,16 @@
 
     .left-panel {
         width: 100%;
-        height: 50%;
+        height: 35%;
         overflow-y: scroll;
         scroll-snap-type: y mandatory;
     }
 
     .right-panel {
         width: 100%;
-        height: 50%;
+        height: 65%;
         position: sticky;
-        top: 0;
+        bottom: 0;
         
     }
 
@@ -275,5 +275,9 @@
         text-align: left;
         
     }
+
+    .icons img {
+        width: 20px;
+    }  
 
 }

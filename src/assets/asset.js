@@ -13,6 +13,7 @@ import vite_icon from "../assets/Vite.js.svg";
 import jupyter_icon from "../assets/Jupyter.svg"
 import router_icon from "../assets/react-router.svg";
 import npm_icon from "../assets/NPM.svg";
+import plus_icon from '../assets/plus.svg'
 
 export const icons = {
     "Express.js": express_icon,
@@ -30,3 +31,5 @@ export const icons = {
     "Jupyter": jupyter_icon,
     "NPM": npm_icon
 };
+
+export {plus_icon};
