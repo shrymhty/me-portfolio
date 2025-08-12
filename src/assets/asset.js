@@ -14,6 +14,10 @@ import jupyter_icon from "../assets/Jupyter.svg"
 import router_icon from "../assets/react-router.svg";
 import npm_icon from "../assets/NPM.svg";
 import plus_icon from '../assets/plus.svg'
+import linkedin from "../assets/linkedin.svg"
+import github from "../assets/github.svg"
+import insta from "../assets/insta.svg"
+import map_pin from "../assets/map_pin.svg"
 
 export const icons = {
     "Express.js": express_icon,
@@ -32,4 +36,10 @@ export const icons = {
     "NPM": npm_icon
 };
 
-export {plus_icon};
+export {
+    plus_icon, 
+    linkedin,
+    github,
+    insta,
+    map_pin
+};

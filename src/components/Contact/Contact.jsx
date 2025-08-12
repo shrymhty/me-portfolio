@@ -1,10 +1,23 @@
 import React from 'react'
 import './Contact.css'
-import { plus_icon } from '../../assets/asset'
+import { map_pin, plus_icon } from '../../assets/asset'
 import map from "../../assets/map.webp"
+import { linkedin, github} from '../../assets/asset'
+import { useState, useEffect } from 'react'
 
 const Contact = ({ activeSection }) => {
   const isActive = activeSection === 'contact';
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    // Update every second
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    // Cleanup on unmount
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="contact">
@@ -43,23 +56,29 @@ const Contact = ({ activeSection }) => {
       <div className="other-details">
         <p><span>Got an idea, a question, or just want to say hi?</span><br/>Feel free to drop me a message.</p>
         <div className="social-links">
-          <div className="link">
-            <img src="" alt="" />
-            <p>Linkedin</p>
-          </div>
-          <div className="link">
-            <img src="" alt="" />
-            <p>GitHub</p>
-          </div>
-          <div className="link">
-            <img src="" alt="" />
-            <p>Instagram</p>
-          </div>
-          <div className="link">
-            <img src="" alt="" />
-            <p>LeetCode</p>
-          </div>
+          <a 
+            className="link"
+            href="https://linkedin.com/in/shreyamhty"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={linkedin} alt="" />
+            <p>linkedin/shreyamhty</p>
+          </a>
+          <a 
+            className="link"
+            href="https://github.com/shrymhty"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={github} alt="" />
+            <p>github/shrymhty</p>
+          </a>
         </div>
+        <div className="link">
+            <img src={map_pin} alt="" />
+            <p>Bengaluru, Karnataka<br/>{time.toLocaleTimeString()}</p>
+          </div>
         <img src={map} alt="" className='map'/>
       </div>
     </div>

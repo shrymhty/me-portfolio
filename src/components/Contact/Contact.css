@@ -3,8 +3,8 @@
     margin: auto 5rem;
     display: flex;
     width: 100%;
-    gap: 5rem;
-    align-items: center;
+    gap: 10rem;
+    align-items: stretch; /* Make children match height */
     justify-content: center;
 }
 
@@ -18,6 +18,8 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     /* gap: 1rem; */
     width: 35%;
+    transform: scale(0);
+    transform-origin: top left;
 }
 
 .contact-form p {
@@ -101,8 +103,9 @@ textarea:active, textarea:hover {
 .other-details {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 100%;
+    gap: 1rem;
 }
 
 .other-details p {
@@ -118,6 +121,21 @@ textarea:active, textarea:hover {
 .social-links {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link p {
+    font-size: 1rem;
+}
+
+.link img {
+    width: 4rem;
 }
 
 .map {
@@ -129,4 +147,24 @@ textarea:active, textarea:hover {
 .map img {
     width: 100%;
     object-fit: cover;
+}
+
+.contact-form.animate {
+    animation: grow 1s ease-out forwards;
+}
+
+@keyframes grow {
+  to {
+    transform: scale(1);
+  }
+}
+
+a.link {
+  color: white;         /* use parent text color */
+  text-decoration: none;  /* remove underline */
+}
+
+a.link:hover {
+  color: white;         /* keep color on hover */
+  text-decoration: underline;  /* no underline on hover */
 }
