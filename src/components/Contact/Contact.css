@@ -113,17 +113,65 @@ input, textarea {
     display: flex;
     flex-direction: column;
     margin: 0;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
-.copyright p {
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-end;
+}
+
+.time-copyright p {
     font-size: 1.4rem;
     border: 1px solid white;
     text-align: center;
     padding: 10px;
 }
 
-.copyright .time {
+.time-copyright .time {
     font-size: 1.3rem;
     text-align: right;
+}
+
+.link {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
+    width: fit-content;
+    padding: 5px;
+    transition: background-color 0.3s ease;
+}
+
+a, a:active, a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.link img {
+    width: 30px;
+}
+
+.link:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.link p {
+    margin: 0;
+    font-size: 1.3rem;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.3s ease, max-width 0.3s ease;
+    color: white;
+}
+
+.link:hover p {
+    opacity: 1;
+    max-width: 300px;
+    color: white;
 }

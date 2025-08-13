@@ -18,6 +18,7 @@ import linkedin from "../assets/linkedin.svg"
 import github from "../assets/github.svg"
 import insta from "../assets/insta.svg"
 import map_pin from "../assets/map_pin.svg"
+import share from "../assets/share.svg"
 
 export const icons = {
     "Express.js": express_icon,
@@ -41,5 +42,5 @@ export {
     linkedin,
     github,
     insta,
-    map_pin
+    share
 };

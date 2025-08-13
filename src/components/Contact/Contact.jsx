@@ -1,6 +1,7 @@
 import React from 'react'
 import './Contact.css'
 import { useState, useEffect } from 'react';
+import { github, linkedin, share } from '../../assets/asset';
 
 const Contact = () => {
 
@@ -116,13 +117,13 @@ const Contact = () => {
             <form className="input-form">
               <div className="field">
                 <label htmlFor="name">
-                  > Name
+                  &gt; Name
                 </label>
-                <div className="input-div">$ <input type="text" name='name' id='input-name' placeholder='enter your name' required/></div>
+                <div className="input-div">$ <input type="text" name='name' id='input-name' placeholder='enter your name' required autoFocus/></div>
               </div>
               <div className="field">
                 <label htmlFor="email">
-                  > Email
+                  &gt; Email
                 </label>
                   <div className="input-div">
                     $ <input type="email" name="email" id="input-email" placeholder='enter your email' required/>
@@ -130,7 +131,7 @@ const Contact = () => {
               </div>
               <div className="field">
                 <label htmlFor="subject">
-                  > Subject
+                  &gt; Subject
                 </label>
                 <div className="input-div">
                   $ <input type="text" name='subject' id='input-subject' placeholder='type here..' required/>
@@ -138,7 +139,7 @@ const Contact = () => {
               </div>
               <div className="feild">
                 <label htmlFor="message">
-                  > Message
+                  &gt; Message
                 </label>
                 <div className="input-div">
                   $ <textarea name="message" id="input-message" required placeholder='enter your message'></textarea>
@@ -150,8 +151,25 @@ const Contact = () => {
         </div>
       </div>
       <div className="copyright">
-        <div className="time">Bengaluru, Karnataka<br/>{time.toLocaleTimeString()}</div>
-        <p>Made by Shreya Mohanty <br />Copyright © 2025 - All Rights Reserved</p>
+        <div className="links">
+          <a className="link share" href='https://shrymhty.netlify.app/#home'>
+            <p>Share my project</p>
+            <img src={share} alt="" />
+          </a>
+          <a className="link linkedin" href='https://www.linkedin.com/in/shreyamhty/' rel='noreferrer' target='_blank'>
+            <p>linkedin/shreyamhty</p>
+            <img src={linkedin} alt="" />
+          </a>
+          <a className='link github' href="https://github.com/shrymhty/" rel='noreferrer' target='_blank'>
+            <p>github/shrymhty</p>
+            <img src={github} alt="" />
+          </a>
+        </div>
+        <div className="time-copyright">
+          <div className="time">Bengaluru, Karnataka<br/>{time.toLocaleTimeString()}</div>
+          <p>Made by Shreya Mohanty <br />Copyright © 2025 - All Rights Reserved</p>
+        </div>
+        
       </div>
     </div>
   )
