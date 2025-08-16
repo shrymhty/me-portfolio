@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Home.css'
 import TextScramble from '../TextScramble/TextScramble'
 import Halftone from '../Halftone/Halftone'
+import MousePosition from '../utils/MousePosition'
 
 const Home = () => {
   return (
