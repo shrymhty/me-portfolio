@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './Contact.css'
 import { useState, useEffect } from 'react';
 import { github, linkedin, share } from '../../assets/asset';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+
+  const form = useRef();
 
   const [time, setTime] = useState(new Date());
 
@@ -16,6 +19,23 @@ const Contact = () => {
     // Cleanup on unmount
     return () => clearInterval(interval);
   }, []);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_rbvn4sb', 'template_9l2vq45', form.current, {
+        publicKey: '8zRjko1EUcttDPgaR',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED..: ', error.text);
+        },
+      );
+  };
 
   return (
     <div className="contact">
@@ -114,7 +134,7 @@ const Contact = () => {
             </div>
             <hr />
             <hr />
-            <form className="input-form">
+            <form className="input-form" ref={form} onSubmit={sendEmail}>
               <div className="field">
                 <label htmlFor="name">
                   &gt; Name
