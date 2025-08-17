@@ -30,6 +30,8 @@ const Contact = () => {
       .then(
         () => {
           console.log('SUCCESS!');
+          form.current.reset();
+          alert("Message sent successfully!");
         },
         (error) => {
           console.log('FAILED..: ', error.text);
