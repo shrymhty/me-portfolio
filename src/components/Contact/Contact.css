@@ -48,7 +48,7 @@
 }
 
 pre {
-    font-size: 0.9rem;
+    font-size: 0.8vw;
     font-weight: 500;
 }
 
@@ -183,7 +183,7 @@ a, a:active, a:hover {
         height: 100vh; 
         margin: 0;
         align-items: center;
-        justify-content: space-around
+        justify-content: space-around;
     }
 
     .contact-div {
