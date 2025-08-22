@@ -11,14 +11,17 @@ import pytorch_icon from "../assets/PyTorch.svg";
 import react_icon from "../assets/React.svg";
 import vite_icon from "../assets/Vite.js.svg";
 import jupyter_icon from "../assets/Jupyter.svg"
-import router_icon from "../assets/react-router.svg";
+// import router_icon from "../assets/react-router.svg";
 import npm_icon from "../assets/NPM.svg";
 import plus_icon from '../assets/plus.svg'
 import linkedin from "../assets/linkedin.svg"
 import github from "../assets/github.svg"
 import insta from "../assets/insta.svg"
-import map_pin from "../assets/map_pin.svg"
+// import map_pin from "../assets/map_pin.svg"
 import share from "../assets/share.svg"
+import blocks from "../assets/blocks.svg"
+import code from "../assets/code.svg"
+import tool from "../assets/tool.svg"
 
 export const icons = {
     "Express.js": express_icon,
@@ -42,5 +45,8 @@ export {
     linkedin,
     github,
     insta,
-    share
+    share,
+    code,
+    tool,
+    blocks
 };

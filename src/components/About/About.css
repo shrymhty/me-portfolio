@@ -14,16 +14,19 @@
     gap: 5rem;
 }
 
-.text {
-    width: 70ch;
+.about  .text {
+    width: 60ch;
     text-align: center;
     font-size: 2rem;
+    height: 20vh;
 }
 
 .skills {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
@@ -36,6 +39,8 @@
     isolation: isolate;
     transition: border-color 200ms var(--ease-out);
     user-select: none;
+    height: 40vh;
+    cursor: pointer;
 }
 
 .card-text {
@@ -45,18 +50,23 @@
 
 @media screen and (max-width: 750px) {
     .about {
-        width: 100%;
-        gap: 15vh;
-        padding: 2rem;
+        width: 90%;
+        margin: auto;
     }
 
     .text {
         font-size: 5vw;
         width: 100%;
-        text-align: left;
+        text-align: center;
     }
 
     .skills {
-        gap: 10vw;
+        grid-template-columns: repeat(3, 1fr); /* still 3 cols */
+        gap: 1rem; /* reduce spacing */
+    }
+
+    .card {
+        aspect-ratio: 4/5;
+        height: auto;
     }
 }
