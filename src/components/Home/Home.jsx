@@ -5,6 +5,14 @@ import Halftone from '../Halftone/Halftone'
 import MousePosition from '../utils/MousePosition'
 
 const Home = () => {
+
+  const phrases = [
+      'developer',
+      'engineer',
+      'data scientist',
+      'designer'
+    ];
+
   return (
     <div className='home'>
       <div className="left">
@@ -12,7 +20,7 @@ const Home = () => {
           <span className="glitch-layer" data-text="SHREYA">SHREYA</span>&nbsp;
           <span className="glitch-layer" data-text="MOHANTY">MOHANTY</span>
         </div>
-        <p className='scramble-text'><TextScramble /></p>
+        <p className='scramble-text'><TextScramble phrases={phrases} /></p>
       </div>
       <div className="right">
         <Halftone />

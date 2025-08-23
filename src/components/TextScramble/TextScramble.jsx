@@ -71,13 +71,13 @@ class TextScrambleEngine {
     }
 }
 
-const TextScramble = () => {
-    const phrases = [
-      'developer',
-      'engineer',
-      'data scientist',
-      'designer'
-    ];
+const TextScramble = ({phrases}) => {
+    // const phrases = [
+    //   'developer',
+    //   'engineer',
+    //   'data scientist',
+    //   'designer'
+    // ];
 
     const elRef = useRef(null);
 
