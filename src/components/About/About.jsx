@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import "./About.css";
 import "../utils/pixel-canvas.js";
 import { tool, blocks, code } from "../../assets/asset";
-import ScrambleText from "../ScrambleAbout/ScrambleAbout";
+import Typewriter from "../Typewriter/Typewriter.jsx";
 
 const About = () => {
   const defaultText =
     "Hi, I'm Shreya. I am currently working as a software engineer at Morgan Stanley.";
   const [hoverText, setHoverText] = useState(defaultText);
-  const [isScrambling, setIsScrambling] = useState(false);
 
   const texts = {
     code: "I enjoy solving complex problems and writing clean, efficient code.",
@@ -19,22 +18,16 @@ const About = () => {
   return (
     <div className="about">
       <div className="text">
-        <ScrambleText
-          text={hoverText}
-          trigger={isScrambling}
-          isDefault={hoverText === defaultText}
-        />
+        <span className="fade-text">{hoverText}</span> 
       </div>
       <div className="skills">
         <div
           className="card"
           onMouseEnter={() => {
             setHoverText(texts.code);
-            setIsScrambling(true);
           }}
           onMouseLeave={() => {
             setHoverText(defaultText);
-            setIsScrambling(true);
           }}
         >
           <pixel-canvas data-gap="10" data-speed="25"></pixel-canvas>
@@ -45,11 +38,9 @@ const About = () => {
           className="card"
           onMouseEnter={() => {
             setHoverText(texts.blocks);
-            setIsScrambling(true);
           }}
           onMouseLeave={() => {
             setHoverText(defaultText);
-            setIsScrambling(true);
           }}
         >
           <pixel-canvas
@@ -64,11 +55,9 @@ const About = () => {
           className="card"
           onMouseEnter={() => {
             setHoverText(texts.tool);
-            setIsScrambling(true);
           }}
           onMouseLeave={() => {
             setHoverText(defaultText);
-            setIsScrambling(true);
           }}
         >
           <pixel-canvas
