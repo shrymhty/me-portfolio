@@ -1,30 +1,36 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 
-const useSectionObserver = () => {
-  const [activeSection, setActiveSection] = useState('home');
+const useSectionObserver = (sectionIds) => {
+  const [activeSection, setActiveSection] = useState("home");
+
   useEffect(() => {
-    const sections = document.querySelectorAll('.section');
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.6, // 60% of section visible = active
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            setActiveSection(id);
-            window.history.replaceState(null, '', `#${id}`);
-          }
-        });
-      },
-      {
-        threshold: 0.6, // Adjust this value to control when section is "in view"
-      }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, options);
 
-    sections.forEach(section => observer.observe(section));
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
 
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      sectionIds.forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) observer.unobserve(element);
+      });
+    };
+  }, [sectionIds]);
+
   return activeSection;
 };
 

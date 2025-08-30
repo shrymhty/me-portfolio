@@ -1,13 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./About.css";
 import "../utils/pixel-canvas.js";
 import { tool, blocks, code } from "../../assets/asset";
-import Typewriter from "../Typewriter/Typewriter.jsx";
 
 const About = () => {
   const defaultText =
     "Hi, I'm Shreya. I am currently working as a software engineer at Morgan Stanley.";
   const [hoverText, setHoverText] = useState(defaultText);
+  const [displayText, setDisplayText] = useState("");
+  
+
+  useEffect(() => {
+    // initial: underscores for letters, spaces remain spaces
+    let current = hoverText
+      .split("")
+      .map((ch) => (ch === " " ? " " : "_"))
+      .join("");
+    setDisplayText(current);
+
+    // list of indices we can reveal (skip spaces)
+    let indices = hoverText
+      .split("")
+      .map((ch, i) => (ch === " " ? null : i))
+      .filter((i) => i !== null);
+
+    let interval = setInterval(() => {
+      if (indices.length === 0) {
+        clearInterval(interval);
+        return;
+      }
+
+      // pick random unrevealed index
+      const randomIndex = Math.floor(Math.random() * indices.length);
+      const charIndex = indices.splice(randomIndex, 1)[0];
+
+      // reveal that letter
+      let chars = current.split("");
+      chars[charIndex] = hoverText[charIndex];
+      current = chars.join("");
+      setDisplayText(current);
+    }, 10);
+
+    return () => clearInterval(interval);
+  }, [hoverText]);
+
 
   const texts = {
     code: "I enjoy solving complex problems and writing clean, efficient code.",
@@ -18,7 +54,7 @@ const About = () => {
   return (
     <div className="about">
       <div className="text">
-        <span className="fade-text">{hoverText}</span> 
+        <span className="fade-text">{displayText}</span> 
       </div>
       <div className="skills">
         <div

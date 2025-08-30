@@ -1,108 +1,96 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './Work.css'
-import { useState, useRef } from 'react';
-import { useEffect } from 'react';
-import calicoImg from '../../assets/calico.png'
-import cvImg from "../../assets/pocketcv.png"
-import examImg from "../../assets/paper.png"
-import { icons } from '../../assets/asset.js';
 
- const projects = [
-    {
-      id: 1,
-      title: "Calico",
-      description: "🧶 Calico is a clean, handcrafted eCommerce experience tailored for showcasing and selling handmade crochet products. Designed with care for both aesthetics and usability, Calico displays the crochet creations beautifully, manages orders seamlessly, and provides a smooth checkout experience.",
-      techStack: ["React", "Node.js", "MongoDB", "Firebase Auth", "Vite", "Express.js"],
-      image: calicoImg,
-    },
-    {
-      id: 2,
-      title: "PocketCV",
-      description: "📄 PocketCV is a smart resume builder using Google Gemini to help users create polished, personalized CVs with live editing, modern templates, and AI-driven content suggestions.",
-      techStack: ['React', 'Node.js', 'Gemini API', 'Vite'],
-      image: cvImg
-    },
-    {
-      id: 3,
-      title: "Enhancing Exam Preparation through Topic Modelling and Key Topic Identification",
-      description: "📚 This project improves exam preparation by using topic modeling to identify key topics from past papers, helping students focus their study and boost performance.",
-      techStack: ['Python', 'PyTorch', 'OpenCV', "Jupyter"],
-      image: examImg
+const Work = ({activeSection}) => {
+
+  const [activeIndex, setActiveIndex] = useState(null);
+  const containerRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  const project_list = [
+    "Project 1",
+    "Project 2",
+    "Project 3"
+  ]
+    
+  useEffect(() => {
+    const options = {
+      root: containerRef.current,
+      threshold: 0.8
     }
-];
 
-const Work = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log(Number(entry.target.dataset.index))
+          setActiveIndex(Number(entry.target.dataset.index))
+        }
+      })
+    }, options)
 
-  const [activeProject, setActiveProject] = useState(projects[0].id);
-  const itemRefs = useRef([]);
+    const items = containerRef.current.querySelectorAll('.scroll-item')
+    items.forEach((item) => observer.observe(item));
+  }, [])
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('data-id');
-            setActiveProject(Number(id));
-          }
-        });
-      },
-      {threshold: 0.6}
-    );
+    if (activeSection === "projects") {
+
+      document.body.style.overflow = "hidden";
+
+      const handleWheel = (e) => {
+        if (activeIndex === 0 && e.deltaY < 0) {
+          document.body.style.overflow = "auto";
+        } else if (activeIndex === project_list.length - 1 && e.deltaY > 0) {
+          document.body.style.overflow = "auto";
+        } else {
+          document.body.style.overflow = "hidden";
+        }
+      };
+
+      window.addEventListener("wheel", handleWheel);
+      return () => {
+        window.removeEventListener("wheel", handleWheel);
+        document.body.style.overflow = "auto";
+      };
+    } else {
+      document.body.style.overflow = "auto";    // restore
+    }
     
-    itemRefs.current.forEach(ref => {
-      if (ref) observer.observe(ref);
-    });
-
     return () => {
-      itemRefs.current.forEach(ref => {
-        if (ref) observer.unobserve(ref);
-      });
+      document.body.style.overflow = "auto";
     };
-  }, []);
+  }, [activeSection, activeIndex]);
 
-  const current = projects.find(p => p.id === activeProject);
+  useEffect(() => {
+    if (activeSection === "projects" && sectionRef.current) {
+      sectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }, [activeSection]);
+
+
 
   return (
-    <div className='project'>
-      <div className="section-title">
-        <p>Here are some of my recent projects that I have worked on.</p>
+    <div className="work-div" ref={sectionRef} id='projects'>
+      <div className="work-heading">
+        <p>My work</p>
       </div>
-      <div className="project-showcase">
-        <div className="left-panel">
-        {projects.map((project, index) => (
-          <div 
-            className="project-card" 
-            key={project.id} 
-            ref={(el) => (itemRefs.current[index] = el)} 
-            data-id={project.id}
+      <div className="project-scroll" ref={containerRef}>
+        {project_list.map((text, i) => (
+          <div
+            key={i}
+            data-index={i}
+            className={`scroll-item ${activeIndex === i ? "active" : ""}`}
           >
-            <img src={project.image} alt={project.title} className='proj-image'/>
+            {text}
           </div>
         ))}
       </div>
-      <div className="right-panel">
-        <div 
-          className="project-details fade"
-          key={current.id}
-        >
-          <p className='proj-title'>{current.title}</p>
-          <p className='proj-desc'>{current.description}</p>
-          <div className='tech-stack'>
-            <div className="icons">
-              {current.techStack.map((tech, i) => (
-                <img 
-                  key={i} 
-                  src={icons[tech]} 
-                  alt={tech} 
-                  title={tech}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      
     </div>
+    
   )
 }
 

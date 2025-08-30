@@ -19,6 +19,7 @@
     text-align: center;
     font-size: 2rem;
     height: 20vh;
+    letter-spacing: 4px;
 }
 
 .skills {
@@ -50,14 +51,16 @@
 
 @media screen and (max-width: 750px) {
     .about {
-        width: 90%;
+        width: 90vw;
         margin: auto;
+        gap: 10vh;
     }
 
-    .text {
-        font-size: 5vw;
+    .about .text {
+        font-size: 6vw;
         width: 100%;
         text-align: center;
+        letter-spacing: 1px;
     }
 
     .skills {
@@ -66,7 +69,7 @@
     }
 
     .card {
-        aspect-ratio: 4/5;
+        aspect-ratio: 3/5;
         height: auto;
     }
 }
