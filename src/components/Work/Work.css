@@ -3,23 +3,78 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100vw;
+    scroll-snap-type: y mandatory;
+    gap: 0;
 }
 
-.work-heading {
-    margin-top: 3rem;
+.work-heading { 
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: black;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-top: 3rem;
+    padding-left: 2rem;
 }
 
-.project-scroll {
-    flex: 1;
-    overflow-y: auto;   
-    border: solid 1px white; 
+.work-heading p {
+    margin: 0;
+    padding: 1rem 0;
 }
 
 .scroll-item {
     width: 100%;
-    height: 100%;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: left;
+    border: #fff solid 2px;
+
+}
+
+.calico, .pocketcv, .paper {
+    width: 100%;
+    height: 100%;
+}
+
+.images {
+  position: relative;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.desktop-image {
+  width: 100%;
+  height: auto;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.phone-image {
+  position: absolute;
+  right: -10%;
+  bottom: -20%;
+  width: 30%;
+  height: auto;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.images.paper-images {
+    gap: 1rem;
+}
+
+.paper-image {
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+    border: 2px solid #fff;
 }

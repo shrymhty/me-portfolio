@@ -1,97 +1,64 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import './Work.css'
+import calico from '../../assets/calico.png'
+import pocketCV from "../../assets/pocketcv.png"
+import paper from "../../assets/paper.png"
+import calico_phone from "../../assets/calico-phone.jpg"
+import pocketcv_phone from "../../assets/pocketcv-phone.jpg"
+import paper_2 from "../../assets/paper_2.jpg"
 
-const Work = ({activeSection}) => {
-
-  const [activeIndex, setActiveIndex] = useState(null);
-  const containerRef = useRef(null);
-  const sectionRef = useRef(null);
+const Work = () => {
 
   const project_list = [
-    "Project 1",
-    "Project 2",
-    "Project 3"
-  ]
-    
-  useEffect(() => {
-    const options = {
-      root: containerRef.current,
-      threshold: 0.8
+    {
+      title: "Calico",
+      image: calico,
+      description: "Calico is a clean, handcrafted eCommerce experience tailored for showcasing and selling handmade crochet products. Designed with care for both aesthetics and usability, Calico displays the crochet creations beautifully, manages orders seamlessly, and provides a smooth checkout experience.",
+    },
+    {
+      title: "PocketCV",
+      image: pocketCV,
+      description: "PocketCV is an intelligent resume builder that leverages Google Gemini to assist users in creating polished, personalized CVs. Designed for speed and clarity, it offers live editing, modern templates, and AI-generated content suggestions tailored to job roles and industries.",
+    },
+    {
+      title: "Enhancing Exam Preparation through Topic Modelling and Key Topic Identification",
+      image: paper,
+      description: "This project improves exam preparation by using topic modeling to identify key topics from past papers, helping students focus their study and boost performance.",
     }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          console.log(Number(entry.target.dataset.index))
-          setActiveIndex(Number(entry.target.dataset.index))
-        }
-      })
-    }, options)
-
-    const items = containerRef.current.querySelectorAll('.scroll-item')
-    items.forEach((item) => observer.observe(item));
-  }, [])
-
-  useEffect(() => {
-    if (activeSection === "projects") {
-
-      document.body.style.overflow = "hidden";
-
-      const handleWheel = (e) => {
-        if (activeIndex === 0 && e.deltaY < 0) {
-          document.body.style.overflow = "auto";
-        } else if (activeIndex === project_list.length - 1 && e.deltaY > 0) {
-          document.body.style.overflow = "auto";
-        } else {
-          document.body.style.overflow = "hidden";
-        }
-      };
-
-      window.addEventListener("wheel", handleWheel);
-      return () => {
-        window.removeEventListener("wheel", handleWheel);
-        document.body.style.overflow = "auto";
-      };
-    } else {
-      document.body.style.overflow = "auto";    // restore
-    }
-    
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [activeSection, activeIndex]);
-
-  useEffect(() => {
-    if (activeSection === "projects" && sectionRef.current) {
-      sectionRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  }, [activeSection]);
-
-
+  ];
 
   return (
-    <div className="work-div" ref={sectionRef} id='projects'>
+    <div className="work-div" id='projects'>
       <div className="work-heading">
-        <p>My work</p>
+        <p>My Works</p>
       </div>
-      <div className="project-scroll" ref={containerRef}>
-        {project_list.map((text, i) => (
-          <div
-            key={i}
-            data-index={i}
-            className={`scroll-item ${activeIndex === i ? "active" : ""}`}
-          >
-            {text}
+      <div className={"scroll-item"}>
+        <div className="calico">
+          <div className="images">
+            <img src={project_list[0].image} alt={project_list[0].title} className='desktop-image'/>
+            <img src={calico_phone} alt={project_list[0].title} className='phone-image'/>
           </div>
-        ))}
+        </div>
       </div>
-      
+      <div className={"scroll-item"}>
+        <div className="pocketcv">
+          <div className="images">
+            <img src={project_list[1].image} alt={project_list[1].title} className='desktop-image'/>
+            <img src={pocketcv_phone} alt={project_list[1].title} className='phone-image'/>
+          </div>
+        </div>
+      </div>
+      <div className={"scroll-item"}>
+        <div className="paper">
+          <div className="images paper-images">
+            <img src={project_list[2].image} alt={project_list[2].title} className='paper-image'/>
+            <img src={paper_2} alt={project_list[2].title} className='paper-image'/>
+          </div>
+        </div>
+      </div>     
     </div>
     
   )
-}
+};
 
 export default Work

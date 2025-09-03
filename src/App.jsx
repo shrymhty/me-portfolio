@@ -104,8 +104,8 @@ const App = () => {
         <About />
       </div>
 
-      <div id="projects" className="section" ref={workRef} >
-        <Work activeSection={activeSection}/>
+      <div id="projects" ref={workRef} >
+        <Work />
       </div>
 
       <div id="contact" className="section" ref={contactRef}>
