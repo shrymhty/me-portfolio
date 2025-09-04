@@ -104,7 +104,7 @@ const App = () => {
         <About />
       </div>
 
-      <div id="projects" ref={workRef} >
+      <div id="projects" ref={workRef} activeSection={activeSection} >
         <Work />
       </div>
 

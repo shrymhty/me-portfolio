@@ -25,9 +25,9 @@ import tool from "../assets/tool.svg"
 
 export const icons = {
     "Express.js": express_icon,
-    "Firebase Auth": firebase_icon,
+    "Firebase": firebase_icon,
     "Git": git_icon,
-    "Gemini API": google_icon,
+    "Google Gemini": google_icon,
     "MongoDB": mongo_icon,
     "Node.js": node_icon,
     "OpenCV": open_icon,
