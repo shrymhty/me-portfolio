@@ -135,3 +135,82 @@
                  0 3px 0 0 #ddd;
   transition: background-color 0.3s, color 0.3s;
 }
+
+@media screen {
+  .work-div {
+      margin: auto;
+  }
+
+  .work-heading {
+    width: 100vw;
+    margin: 0;
+    padding-left: 1rem;
+    font-size: 7vw;
+  }
+
+  .scroll-item {
+    height: 100vh;
+  }
+
+  .calico, .pocketcv, .paper {
+      flex-direction: column;
+      padding: 1rem;
+      gap: 0;
+      justify-content: center;
+      gap: 5vh;
+  }
+
+  .images {
+    width: 100%;
+    padding: 0;
+    justify-content: left;
+  }
+
+  .description {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .desktop-image {
+    width: 80%;
+    aspect-ratio: 5/3;
+  }
+
+  .phone-image {
+    position: absolute;
+    left: 70%;
+    bottom: -20%;
+  }
+
+  .description .project-title {
+    font-size: 7vw;
+  }
+
+  .description .proj-desc {
+    font-size: 4vw;
+    margin-top: 0;
+  }
+
+  .icons {
+    gap: 0.7rem;
+    padding-bottom: 1rem;
+  }
+
+  .icon {
+    gap: 0.3rem;
+    padding: 0.3rem;
+  }
+
+  .icon .tech-name {
+    display: none;
+  }
+
+  .proj-links {
+    margin-top: 1rem;
+  }
+
+  .proj-links a {
+    padding: 0.3rem 0.6rem;
+    font-size: 4vw;
+  }
+}
