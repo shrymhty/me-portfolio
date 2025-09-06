@@ -90,6 +90,7 @@ input, textarea {
     border: none;
     font-family: "TheGoodMonolith", monospace;
     font-size: 1.2rem;
+    resize: none;
 }
 
 .submit-btn {

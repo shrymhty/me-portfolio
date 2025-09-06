@@ -33,7 +33,7 @@ const Work = () => {
   
 
   return (
-    <div className="work-div" id='projects'>
+    <div className="work-div">
       <div className="work-heading">
         <p>My Works</p>
       </div>

@@ -91,6 +91,7 @@ const App = () => {
   const contactRef = useRef(null);
 
   const activeSection = useSectionObserver(["home", "about", "projects", "contact"]);
+  console.log("Active section:", activeSection);
 
   return (
     <div className='app'>
