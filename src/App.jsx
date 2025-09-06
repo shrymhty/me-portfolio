@@ -74,7 +74,7 @@
 
 
 
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import './App.css'
 import Home from './components/Home/Home'
@@ -84,6 +84,10 @@ import Contact from './components/Contact/Contact'
 import useSectionObserver from './components/utils/useSectionObserver'
 
 const App = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // always start at top
+  }, []);
 
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
