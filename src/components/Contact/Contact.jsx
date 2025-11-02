@@ -141,7 +141,7 @@ const Contact = () => {
                 <label htmlFor="name">
                   &gt; Name
                 </label>
-                <div className="input-div">$ <input type="text" name='name' id='input-name' placeholder='enter your name' required autoFocus/></div>
+                <div className="input-div">$ <input type="text" name='name' id='input-name' placeholder='enter your name' required/></div>
               </div>
               <div className="field">
                 <label htmlFor="email">

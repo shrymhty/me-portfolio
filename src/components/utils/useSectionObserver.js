@@ -62,7 +62,7 @@ const useSectionObserver = (sectionIds) => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // run once on mount
+    // handleScroll(); // run once on mount
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [sectionIds]);

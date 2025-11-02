@@ -74,7 +74,7 @@
 
 
 
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import './App.css'
 import Home from './components/Home/Home'
@@ -82,12 +82,11 @@ import About from './components/About/About'
 import Work from './components/Work/Work'
 import Contact from './components/Contact/Contact'
 import useSectionObserver from './components/utils/useSectionObserver'
+import LoadingScreen from './components/LoadingScreen/LoadingScreen'
 
 const App = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0); // always start at top
-  }, []);
+  // const [isLoading, setIsLoading] = useState(true);
 
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
@@ -95,7 +94,27 @@ const App = () => {
   const contactRef = useRef(null);
 
   const activeSection = useSectionObserver(["home", "about", "projects", "contact"]);
+
+
   console.log("Active section:", activeSection);
+
+  // useEffect(() => {
+  //   // Simulate loading delay (you can adjust time or tie it to image/data loading)
+  //   const timer = setTimeout(() => {
+  //     setIsLoading(false)
+  //     // Re-enable scrolling after load
+  //     document.body.style.overflow = "auto"
+  //   }, 2500)
+
+  //   // Prevent scrolling while loading screen is visible
+  //   document.body.style.overflow = "hidden"
+
+  //   return () => clearTimeout(timer)
+  // }, [])
+
+  // if (isLoading) {
+  //   return <LoadingScreen />
+  // }
 
   return (
     <div className='app'>
@@ -109,7 +128,7 @@ const App = () => {
         <About />
       </div>
 
-      <div id="projects" ref={workRef} activeSection={activeSection} >
+      <div id="projects" ref={workRef} >
         <Work />
       </div>
 

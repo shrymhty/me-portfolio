@@ -1,0 +1,31 @@
+#visual-container {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#pulsing-grid {
+  transition: transform 0.3s ease;
+}
+
+/* === White Corner Dots === */
+.corner-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white; /* changed from cyan */
+  border-radius: 50%;
+  opacity: 0.5;
+  filter: blur(0.5px);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.corner-dot {
+  animation: twinkle 2.5s infinite ease-in-out;
+}
